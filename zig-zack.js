@@ -106,3 +106,36 @@ function short(arr) {
         }
     }
 }
+
+// in solution box 
+const main = input.split('\n')[2];
+let arr = [];
+const stringArr = main.split(' ')
+stringArr.forEach(ele => {
+    arr = [...arr, parseInt(ele)]
+})
+const len = arr.length;
+const max = arr[len];
+const mid = Math.round(len / 2)
+
+const first = arr.slice(0, mid);
+const firstLastNum = first[first.length - 1]
+
+const firstEle = first.slice(0, first.length - 1)
+
+
+const last = arr.slice(mid)
+
+let lastRev = [];
+const lastEle = [firstLastNum, ...last]
+
+lastEle.forEach(ele => {
+    lastRev = [ele, ...lastRev]
+})
+
+const result = [...firstEle, ...lastRev]
+let string = ''
+result.forEach(ele => {
+    string = string + ele
+})
+console.log(...result);
